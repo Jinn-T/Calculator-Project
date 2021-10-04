@@ -37,7 +37,7 @@ updateDisplay = (number) => (display.innerHTML += number);
 
 // clear button
 allClear.addEventListener("click", () => {
-    display.innerText = "";
+    display.innerText = "0";
     currentNumber = currentNumber.innerText = "";
     storedNum = storedNum.innerText = "";
 });
@@ -54,6 +54,7 @@ del.addEventListener("click", () => {
 
 allBtnNumber.forEach((button) => {
     button.addEventListener("click", (e) => {
+        display.innerText = "";
         console.log(e.target); // target selects the event object
         console.log(e.target.innerHTML); // selects the hmtl elements
         let target = e.target;
