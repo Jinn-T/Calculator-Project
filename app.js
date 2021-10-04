@@ -19,6 +19,7 @@ console.log(operators);
 const allClear = document.querySelector(".all-clear");
 const equals = document.querySelector(".equals");
 const del = document.querySelector(".delete");
+const percent = document.querySelector(".percent");
 
 // store values
 let currentNumber = "";
@@ -122,4 +123,9 @@ equals.addEventListener("click", (e) => {
     }
 });
 
-//update current number
+percent.addEventListener("click", (e) => {
+    display.innerText = "";
+    calculatedNum = (calculatedNum / 100).toString(); //current number to a percent
+    currentNumber = calculatedNum; // update the current number with percent calculation so we can do further operations
+    display.innerHTML += calculatedNum;
+});
