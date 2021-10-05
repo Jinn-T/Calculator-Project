@@ -63,5 +63,31 @@
         border-radius: 50px 50px;
     }
 }
+.btn:hover {
+    cursor: pointer;
+    background-color: #d4d4d2;
+}
+
+.operator {
+    background-color: #f69907;
+    color: white;
+}
+.equals {
+    background-color: #f69907;
+    color: white;
+}
+.number {
+    background-color: #313131;
+    color: white;
+}
+.all-clear {
+    background-color: #a0a0a0;
+}
+.delete {
+    background-color: #a0a0a0;
+}
+.percent {
+    background-color: #a0a0a0;
+}
 
 // need to add hovers to our buttons
