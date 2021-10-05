@@ -27,6 +27,7 @@ let storedNum = 0;
 let lastOperation = "";
 let haveDot = false;
 let calculatedNum = 0;
+// let additionalNumber = 0;
 
 //converts html value to a number
 // const numberValue = parseInt();
@@ -37,7 +38,7 @@ updateDisplay = (number) => (display.innerHTML += number);
 
 // clear button
 allClear.addEventListener("click", () => {
-    display.innerText = "0";
+    display.innerText = "";
     currentNumber = currentNumber.innerText = "";
     storedNum = storedNum.innerText = "";
 });
@@ -54,13 +55,13 @@ del.addEventListener("click", () => {
 
 allBtnNumber.forEach((button) => {
     button.addEventListener("click", (e) => {
-        display.innerText = "";
+        // display.innerText = "";
         console.log(e.target); // target selects the event object
         console.log(e.target.innerHTML); // selects the hmtl elements
         let target = e.target;
 
         if (target.innerText === "." && !haveDot) {
-            //selecting "." and if we havent selected "." before
+            //selecting "." and if we havent selected "." before then we can add the value
             let value = target.innerHTML;
             display.innerHTML += value; // add value to screen
             currentNumber = currentNumber += value; // add value to total num
@@ -82,7 +83,6 @@ operators.forEach((button) => {
     button.addEventListener("click", (e) => {
         haveDot = false;
         if (display && currentNumber) {
-            //&& !storedNum
             lastOperation = lastOperation += e.target.innerText;
             // console.log(lastOperation);
             storedNum = parseFloat(currentNumber);
@@ -99,7 +99,7 @@ operators.forEach((button) => {
 equals.addEventListener("click", (e) => {
     if (lastOperation.slice(-1) === "x") {
         display.innerText = "";
-        calculatedNum = storedNum * parseFloat(currentNumber);
+        calculatedNum = storedNum * parseFloat(currentNumber); //storedNum used from the operator event
         let calculatedNumString = calculatedNum.toString();
         display.innerHTML += calculatedNumString;
         currentNumber = calculatedNumString; // update the current number with calculation so we can do further calculations
