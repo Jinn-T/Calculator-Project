@@ -92,9 +92,7 @@ operators.forEach((button) => {
         }
     });
 });
-
-// clearVar = () => 40mins
-//equals
+console.log(lastOperation);
 
 equals.addEventListener("click", (e) => {
     if (lastOperation.slice(-1) === "x") {
@@ -126,7 +124,7 @@ equals.addEventListener("click", (e) => {
 
 percent.addEventListener("click", (e) => {
     display.innerText = "";
-    calculatedNum = (calculatedNum / 100).toString(); //current number to a percent
+    calculatedNum = (currentNumber / 100).toString(); //current number to a percent
     currentNumber = calculatedNum; // update the current number with percent calculation so we can do further operations
     display.innerHTML += calculatedNum;
 });
