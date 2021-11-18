@@ -33,8 +33,13 @@ let calculatedNum = 0;
 // const numberValue = parseInt();
 // console.log(numberValue);
 
-//functions
+//reusable functions
 updateDisplay = (number) => (display.innerHTML += number);
+
+updateCurrentNumber = (num) => {
+    display.innerHTML += num;
+    currentNumber = num;
+};
 
 // clear button
 allClear.addEventListener("click", () => {
@@ -99,32 +104,27 @@ equals.addEventListener("click", (e) => {
         display.innerText = "";
         calculatedNum = storedNum * parseFloat(currentNumber); //storedNum used from the operator event
         let calculatedNumString = calculatedNum.toString();
-        display.innerHTML += calculatedNumString;
-        currentNumber = calculatedNumString; // update the current number with calculation so we can do further calculations
+        updateCurrentNumber(calculatedNumString); // update the current number with calculation so we can do further calculations
     } else if (lastOperation.slice(-1) === "+") {
         display.innerText = "";
         calculatedNum = storedNum + parseFloat(currentNumber);
         let calculatedNumString = calculatedNum.toString();
-        display.innerHTML += calculatedNumString;
-        currentNumber = calculatedNumString;
+        updateCurrentNumber(calculatedNumString);
     } else if (lastOperation.slice(-1) === "/") {
         display.innerText = "";
         calculatedNum = storedNum / parseFloat(currentNumber);
         let calculatedNumString = calculatedNum.toString();
-        display.innerHTML += calculatedNumString;
-        currentNumber = calculatedNumString;
+        updateCurrentNumber(calculatedNumString);
     } else if (lastOperation.slice(-1) === "-") {
         display.innerText = "";
         calculatedNum = storedNum - parseFloat(currentNumber);
         let calculatedNumString = calculatedNum.toString();
-        display.innerHTML += calculatedNumString;
-        currentNumber = calculatedNumString;
+        updateCurrentNumber(calculatedNumString);
     }
 });
 
 percent.addEventListener("click", (e) => {
     display.innerText = "";
     calculatedNum = (currentNumber / 100).toString(); //current number to a percent
-    currentNumber = calculatedNum; // update the current number with percent calculation so we can do further operations
-    display.innerHTML += calculatedNum;
+    updateCurrentNumber(calculatedNum);
 });
