@@ -128,3 +128,5 @@ percent.addEventListener("click", (e) => {
     calculatedNum = (currentNumber / 100).toString(); //current number to a percent
     updateCurrentNumber(calculatedNum);
 });
+
+// test
